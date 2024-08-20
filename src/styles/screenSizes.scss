@@ -1,0 +1,19 @@
+@import '../styles/variables.scss';
+
+@mixin on-desktop {
+  @media (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $breakpoint-medium) and (max-width: calc(#{$breakpoint-large} - 1px)) {
+    @content;
+  }
+}
+
+@mixin on-phone {
+  @media (min-width: $breakpoint-small) and (max-width: calc(#{$breakpoint-medium} - 1px)) {
+    @content;
+  }
+}
