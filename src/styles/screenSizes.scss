@@ -13,7 +13,7 @@
 }
 
 @mixin on-phone {
-  @media (min-width: $breakpoint-small) and (max-width: calc(#{$breakpoint-medium} - 1px)) {
+  @media (max-width: calc(#{$breakpoint-medium} - 1px)) {
     @content;
   }
 }

@@ -1,0 +1,65 @@
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset table styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset image styles */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-style: none; /* Removes border from images */
+}
+
+/* Reset button and input styles */
+button,
+input,
+textarea,
+select {
+  font: inherit; /* Inherit font settings from parent */
+  border: none; /* Remove default borders */
+  background: none; /* Remove default background */
+  padding: 0; /* Remove default padding */
+  outline: none; /* Remove outline on focus */
+}
+
+li {
+  list-style-type: none;
+}
+
+form {
+  margin: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}

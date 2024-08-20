@@ -1,12 +1,11 @@
-@import './styles/fonts.scss';
-@import './styles/variables.scss';
-
-* {
+body {
   margin: 0;
   padding: 0;
-}
-
-body {
   background-color: $color-background;
   color: $color-text;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

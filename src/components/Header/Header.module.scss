@@ -1,0 +1,113 @@
+.header {
+  min-width: 320px;
+  display: flex;
+  height: 48px;
+  position: sticky;
+  top: 0;
+
+  background-color: $color-black;
+
+  @media (min-width: $desktop) {
+    height: 64px;
+  }
+
+  &__menu {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  // !!!next styles can cause some problems!!!
+  &__logo {
+    height: 22px;
+    width: 64px;
+    margin-right: 16px;
+    margin-left: 16px;
+
+    &-link {
+      width: 86px;
+    }
+  }
+
+  &__burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 48px;
+    margin-left: auto;
+
+    @media (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__icon {
+    width: 16px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.navigation {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    position: absolute;
+    left: 112px;
+    bottom: unset;
+    display: flex;
+    height: 100%;
+    background: unset;
+    min-height: unset;
+    max-height: unset;
+    overflow: unset;
+    opacity: unset;
+  }
+
+  &__list {
+    display: flex;
+    gap: 32px;
+    padding-left: 0;
+  }
+
+  &__item {
+    @include font-uppercase;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  &__right {
+    display: flex;
+    height: 100%;
+
+    &-container {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-item1 {
+      background-image: url('../../../public/images/top-bar_favourites.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+    }
+
+    &-item2 {
+      background-image: url('../../../public/images/top-bar_cart.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

@@ -1,5 +1,16 @@
 @import 'variables';
 
+@font-face {
+  font-family: 'Mont-bold';
+  src: url('../../public/fonts/Mont-Bold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Mont', sans-serif;
+}
+
 @mixin font_h1 {
   font-family: 'Mont', sans-serif;
   font-weight: 800;
@@ -37,7 +48,7 @@
 }
 
 @mixin font_uppercase {
-  font-family: 'Mont', sans-serif;
+  font-family: 'Mont-bold', sans-serif;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -70,5 +81,41 @@
   letter-spacing: 0;
   line-height: 15px;
   font-size: 12px;
+  color: $color-text;
+}
+
+@mixin font_h1-mobile {
+  font-family: 'Mont', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 41px;
+  font-size: 32px;
+  color: $color-text;
+}
+
+@mixin font_h2-mobile {
+  font-family: 'Mont', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 31px;
+  font-size: 22px;
+  color: $color-text;
+}
+
+@mixin font_h3-mobile {
+  font-family: 'Mont', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 26px;
+  font-size: 20px;
+  color: $color-text;
+}
+
+@mixin font_h4-mobile {
+  font-family: 'Mont', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 20px;
+  font-size: 16px;
   color: $color-text;
 }
