@@ -1,11 +1,14 @@
 .home__slider {
+  grid-column: 1 / -1;
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .home__slider-item {
-  width: 100%; /* Make sure images fit within their container */
-  max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
   display: block;
+  object-fit: cover;
 }
