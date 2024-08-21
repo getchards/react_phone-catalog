@@ -5,6 +5,9 @@ import { Link, NavLink } from 'react-router-dom';
 export const Header = () => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
+  const getActiveClass = ({ isActive }: { isActive: boolean }) =>
+    isActive ? 'navigation__item active-link' : 'navigation__item';
+
   const closeMenu = () => {
     setIsMenuOpened(false);
   };
@@ -17,45 +20,61 @@ export const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header__menu">
-          <Link className="header__logo-link" to="/" onClick={closeMenu}>
-            <img
-              src="./images/top-bar_logo.png"
-              alt="Logo"
-              className="header__logo"
-            />
-          </Link>
-          <nav className={classNames('navigation')}>
-            <ul className="navigation__list">
-              <li className="navigation__item">
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li className="navigation__item">
-                <NavLink to="phones">Phones</NavLink>
-              </li>
-              <li className="navigation__item">
-                <NavLink to="tablets">Tablets</NavLink>
-              </li>
-              <li className="navigation__item">
-                <NavLink to="accessories">Accessories</NavLink>
-              </li>
-            </ul>
-            <div className="navigation__right">
-              <div className="">
-                <div className="navigation__right-container">
-                  <NavLink to="favourites">
-                    <div className="navigation__right-item1"></div>
+          <div className="header__left">
+            <Link className="header__logo-link" to="/" onClick={closeMenu}>
+              <img
+                src="./images/top-bar_logo.png"
+                alt="Logo"
+                className="header__logo"
+              />
+            </Link>
+            <nav className={classNames('navigation')}>
+              <ul className="navigation__list">
+                <li className="navigation__item">
+                  <NavLink className={getActiveClass} to="/">
+                    Home
                   </NavLink>
-                </div>
-              </div>
+                </li>
+                <li className="navigation__item">
+                  <NavLink className={getActiveClass} to="phones">
+                    Phones
+                  </NavLink>
+                </li>
+                <li className="navigation__item">
+                  <NavLink className={getActiveClass} to="tablets">
+                    Tablets
+                  </NavLink>
+                </li>
+                <li className="navigation__item">
+                  <NavLink className={getActiveClass} to="accessories">
+                    Accessories
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className="navigation__right">
+            <div className="navigation__right-container">
               <div className="navigation__right-item">
-                <div className="navigation__right-container">
-                  <NavLink to="cart">
-                    <div className="navigation__right-item2"></div>
-                  </NavLink>
-                </div>
+                <NavLink
+                  className={({ isActive }: { isActive: boolean }) =>
+                    isActive ? ' active-link' : ''
+                  }
+                  to="favourites"
+                >
+                  <div className="navigation__right-item1"></div>
+                </NavLink>
               </div>
             </div>
-          </nav>
+            <div className="navigation__right-container">
+              <div className="navigation__right-item">
+                <NavLink className="navigation__cart-box" to="cart">
+                  <div className="navigation__right-item2"></div>
+                  <div className="goods-in-cart"></div>
+                </NavLink>
+              </div>
+            </div>
+          </div>
           <div className="header__burger">
             {isMenuOpened ? (
               <img

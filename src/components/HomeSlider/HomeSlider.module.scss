@@ -1,0 +1,11 @@
+.home__slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.home__slider-item {
+  width: 100%; /* Make sure images fit within their container */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+}

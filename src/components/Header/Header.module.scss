@@ -5,10 +5,16 @@
   position: sticky;
   top: 0;
 
-  background-color: $color-black;
+  background-color: $color-black-gray;
 
   @media (min-width: $desktop) {
     height: 64px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   &__menu {
@@ -23,10 +29,11 @@
     height: 22px;
     width: 64px;
     margin-right: 16px;
-    margin-left: 16px;
+    margin-left: 24px;
 
-    &-link {
-      width: 86px;
+    @media (min-width: $desktop) {
+      width: 80px;
+      height: 28px;
     }
   }
 
@@ -39,6 +46,10 @@
 
     @media (min-width: $tablet) {
       display: none;
+    }
+
+    @media (min-width: $desktop) {
+      min-width: 64px;
     }
   }
 
@@ -55,12 +66,11 @@
 .navigation {
   display: none;
   align-items: center;
-  flex-direction: column;
 
   @media (min-width: $tablet) {
     flex-direction: row;
     position: absolute;
-    left: 112px;
+    left: 128px;
     bottom: unset;
     display: flex;
     height: 100%;
@@ -71,27 +81,61 @@
     opacity: unset;
   }
 
+  @media (min-width: $desktop) {
+    left: 152px;
+  }
+
   &__list {
     display: flex;
     gap: 32px;
     padding-left: 0;
+
+    @media (min-width: $desktop) {
+      gap: 64px;
+    }
   }
 
   &__item {
     @include font-uppercase;
     height: 48px;
     line-height: 48px;
+
+    @media (min-width: $desktop) {
+      height: 64px;
+      line-height: 64px;
+    }
+  }
+
+  &__cart-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
   }
 
   &__right {
-    display: flex;
+    display: none;
     height: 100%;
+
+    @media (min-width: $tablet) {
+      display: flex;
+    }
 
     &-container {
       display: flex;
-      height: 100%;
-      align-items: center;
       justify-content: center;
+      width: 48px;
+
+      @media (min-width: $desktop) {
+        width: 64px;
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
 
     &-item1 {
@@ -109,5 +153,18 @@
       width: 16px;
       height: 16px;
     }
+  }
+}
+
+.active-link {
+  text-decoration: underline;
+  text-decoration-color: rgba(241, 242, 249, 1);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  text-underline-offset: 18px;
+  overflow: hidden;
+
+  @media (min-width: $desktop) {
+    text-underline-offset: 26px;
   }
 }
