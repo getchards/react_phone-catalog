@@ -1,32 +1,57 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState } from 'react';
 
 const images = [
-  { src: './images/slider1.png' },
-  { src: './images/slider1.png' },
-  { src: './images/slider1.png' },
+  { src: './images/slider1.png', alt: 'Slide 1' },
+  { src: './images/top-bar_cart.png', alt: 'Slide 2' },
+  { src: './images/slider1.png', alt: 'Slide 3' },
 ];
 
 const HomeSlider = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextSlide = () => {
+    if (activeIndex < images.length - 1) {
+      setActiveIndex(prevIndex => prevIndex + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (activeIndex > 0) {
+      setActiveIndex(prevIndex => prevIndex - 1);
+    }
+  };
+
   return (
-    <div className="home__slider">
-      <Swiper
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        loop={true}
+    <div className="carousel">
+      <button
+        onClick={prevSlide}
+        className="carousel__btn carousel__btn--prev"
+        disabled={activeIndex === 0}
       >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <img
-              src={image.src}
-              alt={`Slide ${index + 1}`}
-              className="home__slider-item"
-            />
-          </SwiperSlide>
+        &lt;
+      </button>
+      <img
+        src={images[activeIndex].src}
+        alt={images[activeIndex].alt}
+        className="carousel__img"
+      />
+      <button
+        onClick={nextSlide}
+        className="carousel__btn carousel__btn--next"
+        disabled={activeIndex === images.length - 1}
+      >
+        &gt;
+      </button>
+      <div className="carousel__indicators">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`carousel__indicator ${
+              index === activeIndex ? 'carousel__indicator--active' : ''
+            }`}
+          />
         ))}
-      </Swiper>
+      </div>
     </div>
   );
 };
