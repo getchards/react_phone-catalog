@@ -1,0 +1,13 @@
+.newmodels-list {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 24px;
+
+  &__container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min-content; // Adjust width as needed
+    gap: 16px; // Adjust spacing between items
+    align-items: start;
+  }
+}

@@ -1,0 +1,55 @@
+.newmodels {
+  margin-top: 56px;
+
+  @media (min-width: $tablet) {
+    margin-top: 80px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include font-h2;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__button {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: $surface-second;
+
+    &:hover {
+      background-color: rgba(74, 77, 88, 1);
+    }
+  }
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.arrow-icon-left {
+  background-image: url('../../../public/images/arrow-left.png');
+}
+
+.arrow-icon-right {
+  background-image: url('../../../public/images/arrow-right.svg');
+}
+
+.is-disabled-button {
+  background-color: $color-gray-elements !important;
+}

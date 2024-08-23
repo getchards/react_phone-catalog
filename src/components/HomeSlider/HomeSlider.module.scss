@@ -1,67 +1,19 @@
-.carousel {
-  position: relative;
-  width: 100vw;max-width: 1200px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.homeslider {
+  grid-column: 1 / -1;
+  display: grid;
+  margin-top: 24px;
 
-.carousel__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.carousel__btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 15px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.carousel__btn--prev {
-  left: -20px;
-}
-
-.carousel__btn--next {
-  right: -20px;
-}
-
-@media (max-width: 639px) {
-  .carousel__btn {
-    display: none;
+  @media (min-width: $tablet) {
+    margin-top: 32px;
   }
-}
 
-.carousel__btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+  @media (min-width: $desktop) {
+    margin-top: 56px;
+  }
 
-.carousel__indicators {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
+  @include pageGrid;
 
-.carousel__indicator {
-  width: 20px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid white;
-  cursor: pointer;
-}
-
-.carousel__indicator--active {
-  background-color: white;
+  &__container {
+    grid-column: 1 / -1;
+  }
 }

@@ -1,170 +1,178 @@
 .header {
-  min-width: 320px;
-  display: flex;
-  height: 48px;
-  position: sticky;
-  top: 0;
-
-  background-color: $color-black-gray;
-
-  @media (min-width: $desktop) {
-    height: 64px;
-  }
-
-  &__left {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  &__menu {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-  }
-  // !!!next styles can cause some problems!!!
-  &__logo {
-    height: 22px;
-    width: 64px;
-    margin-right: 16px;
-    margin-left: 24px;
-
-    @media (min-width: $desktop) {
-      width: 80px;
-      height: 28px;
-    }
-  }
-
-  &__burger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 48px;
-    margin-left: auto;
-
-    @media (min-width: $tablet) {
-      display: none;
-    }
-
-    @media (min-width: $desktop) {
-      min-width: 64px;
-    }
-  }
-
-  &__icon {
-    width: 16px;
-  }
-}
-
-.container {
   position: relative;
-  width: 100%;
-}
+  z-index: 50;
 
-.navigation {
-  display: none;
-  align-items: center;
+  &__top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 
-  @media (min-width: $tablet) {
-    flex-direction: row;
-    position: absolute;
-    left: 128px;
-    bottom: unset;
     display: flex;
-    height: 100%;
-    background: unset;
-    min-height: unset;
-    max-height: unset;
-    overflow: unset;
-    opacity: unset;
+    background-color: $color-black-gray;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-gray-elements;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
-  @media (min-width: $desktop) {
-    left: 152px;
-  }
-
-  &__list {
-    display: flex;
+  &__nav {
+    display: none;
     gap: 32px;
-    padding-left: 0;
 
-    @media (min-width: $desktop) {
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onDesktop {
       gap: 64px;
     }
   }
 
-  &__item {
-    @include font-uppercase;
-    height: 48px;
-    line-height: 48px;
+  &__container {
+    display: flex;
+    gap: 16px;
 
-    @media (min-width: $desktop) {
-      height: 64px;
-      line-height: 64px;
+    @include onTablet {
+      gap: 24px;
     }
   }
 
-  &__cart-box {
+  &__logo {
+    display: block;
+    padding: 13px 16px;
+
+    @include onDesktop {
+      padding: 18px 24px;
+    }
+
+    @include hover(scale, 1.1);
+
+    &--img {
+      display: block;
+      width: 64px;
+      height: 22px;
+
+      @include onDesktop {
+        width: 80px;
+        height: 28px;
+      }
+    }
+  }
+
+  &__action {
+    display: flex;
+  }
+
+  &__icon {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 28px;
-    height: 28px;
-  }
+    padding: 16px;
+    border-left: 1px solid $color-gray-elements;
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-white;
+    transition: 0.3s;
 
-  &__right {
-    display: none;
-    height: 100%;
-
-    @media (min-width: $tablet) {
-      display: flex;
+    @include onDesktop {
+      padding: 24px;
     }
 
-    &-container {
-      display: flex;
-      justify-content: center;
-      width: 48px;
+    &:hover &--img {
+      transform: scale(1.1);
+    }
 
-      @media (min-width: $desktop) {
-        width: 64px;
+    &:hover &-number {
+      transform: scale(1.1) translateY(-50%);
+    }
+
+    &--img {
+      display: block;
+      width: 16px;
+      height: 16px;
+      transition: 0.3s;
+    }
+
+    &--mobile {
+      @include onTablet {
+        display: none;
       }
     }
 
-    &-item {
-      display: flex;
-      align-items: center;
-      height: 100%;
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
     }
 
-    &-item1 {
-      background-image: url('../../../public/images/top-bar_favourites.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 16px;
-      height: 16px;
+    &--active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $color-white;
     }
+  }
 
-    &-item2 {
-      background-image: url('../../../public/images/top-bar_cart.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      width: 16px;
-      height: 16px;
-    }
+  &__icon-container {
+    position: relative;
+  }
+
+  &__icon-number {
+    position: absolute;
+    top: 0;
+    left: 75%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    background-color: $color-red;
+    border-radius: 50%;
+    border: 1px solid $color-black-gray;
+    font-weight: 700;
+    font-size: 9px;
+    transition: 0.3s;
   }
 }
 
-.active-link {
-  text-decoration: underline;
-  text-decoration-color: rgba(241, 242, 249, 1);
-  text-decoration-thickness: 3px;
-  text-underline-offset: 3px;
-  text-underline-offset: 18px;
-  overflow: hidden;
+.nav {
+  &__link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: $color-secondary;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    width: max-content;
+    transition: 0.3s;
 
-  @media (min-width: $desktop) {
-    text-underline-offset: 26px;
+    @include hover(color, $color-white);
+    @include hover(scale, 1.1);
+
+    &--active {
+      color: $color-white;
+      @include hover(scale, 1);
+    }
+
+    &--active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $color-white;
+    }
   }
 }

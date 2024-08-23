@@ -1,0 +1,28 @@
+.newmodels-item {
+  display: flex;
+  flex-direction: column;
+  background-color: $surface-first;
+  width: 212px;
+  height: 439px;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0 32px;
+
+  &__image {
+    width: 148px;
+    height: 129px;
+    margin-top: 32px;
+  }
+
+  &__wrapper {
+    margin-top: 8px;
+    padding-top: 16px;
+  }
+
+  &__title {
+    @include font-body-text;
+    text-align: center;
+    width: 100%;
+    white-space: normal;
+  }
+}

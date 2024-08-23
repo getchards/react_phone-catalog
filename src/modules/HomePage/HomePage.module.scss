@@ -2,22 +2,43 @@
   display: flex;
   flex-direction: column;
   background-color: $color-black-gray;
+  padding-top: 72px;
 
   &__outer-container {
     padding: 0 16px;
+
+    @media (min-width: $tablet) {
+      padding: 0 24px;
+      padding-top: 32px;
+    }
+
+    @media (min-width: $desktop) {
+      padding: 0 32px;
+      padding-top: 56px;
+
+    }
   }
 
   &__container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
+
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: $desktop) {
+      grid-template-columns: repeat(24, 32px);
+      gap: 24px;
+    }
   }
 
   &__header {
-    @include font_h2-mobile;
+    @include font_h1-mobile;
+    font-size: 48px;
     grid-column: 1 / -1;
     color: $color-text;
     margin-top: 24px;
   }
-
 }

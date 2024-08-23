@@ -1,7 +1,27 @@
-@import './screenSizes.scss';
-@import './fonts.scss';
 @import './variables.scss';
+@import './fonts.scss';
 @import './global.scss';
-@import '../components/HomeSlider/HomeSlider.module.scss';
+@import './screenSizes.scss';
 @import '../components/Header/Header.module.scss';
+@import '../components/AsideBar/AsideBar.module.scss';
+@import '../components/HomeSlider/HomeSlider.module.scss';
+@import '../components/NewModels/NewModels.module.scss';
+@import '../components/NewModelsList/NewModelsList.module.scss';
+@import '../components/NewModelsItem/NewModelsItem.module.scss';
 @import '../modules/HomePage/HomePage.module.scss';
+
+.page {
+  font-family: Mont, sans-serif;
+  font-weight: 500;
+  background-color: $color-black-gray;
+  color: $color-white;
+  scroll-behavior: smooth;
+}
+
+.main {
+  padding-top: 48px;
+
+  @include onTablet {
+    padding-top: 64px;
+  }
+}
